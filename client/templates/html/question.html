@@ -1,0 +1,13 @@
+<template name = "question">
+{{> breadcrumb}}
+	<h1>{{question.question}}</h1>
+
+<ul>
+	{{#each question.answers}}
+
+		<li> {{this}} </li>
+
+	{{/each}}
+
+</ul>
+</template>

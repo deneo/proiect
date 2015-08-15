@@ -1,10 +1,24 @@
 <template name = "category">
 {{> breadcrumb}}
 
-<ul class="nav nav-pills">
+Subcategorii:<ul class="nav nav-pills">
 
-	{{#each data}}
+	{{#each categories}}
 		<li role="presentation"><a href="/continut{{path}}/{{_id}}">{{_id}}</a></li>
+	{{/each}}
+</ul>
+
+Lectii:<ul class="nav nav-pills">
+
+	{{#each lessons}}
+		<li role="presentation"><a href="/lectie{{path}}/{{_id}}">{{_id}}</a></li>
+	{{/each}}
+</ul>
+
+Intrebari:<ul class="nav nav-pills">
+
+	{{#each questions}}
+		<li role="presentation"><a href="/intrebare{{path}}/{{_id}}">{{question}}</a></li>
 	{{/each}}
 </ul>
 

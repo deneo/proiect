@@ -1,6 +1,15 @@
 <template name = "lesson">
 {{> breadcrumb}}
 
-{{{html}}}
+{{{lesson.html}}}
+
+
+Intrebari:<ul class="nav nav-pills">
+
+	{{#each questions}}
+		<li role="presentation"><a href="/intrebare{{path}}/{{_id}}">{{question}}</a></li>
+	{{/each}}
+</ul>
+
 
 </template>
