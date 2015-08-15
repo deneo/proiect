@@ -1,0 +1,11 @@
+<template name = "category">
+{{> breadcrumb}}
+
+<ul class="nav nav-pills">
+
+	{{#each data}}
+		<li role="presentation"><a href="/continut{{path}}/{{_id}}">{{_id}}</a></li>
+	{{/each}}
+</ul>
+
+</template>

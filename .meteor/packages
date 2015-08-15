@@ -10,3 +10,11 @@ insecure
 iron:router
 accounts-password
 twbs:bootstrap
+accounts-ui
+accounts-facebook
+dburles:collection-helpers
+aldeed:collection2
+accounts-base
+alanning:roles
+fortawesome:fontawesome
+yogiben:admin
