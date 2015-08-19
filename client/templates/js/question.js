@@ -11,5 +11,12 @@ Template.question.events({
 			$("#message").html('<div class="alert alert-success" id="message">Ai raspuns corect!</div>');
 		else
 			$("#message").html('<div class="alert alert-danger" id="message">Raspunsul tau este gresit!</div>');
+	},
+	'click .quiz-choice': function(event) {
+		
+		$(".quiz-choice").removeClass('user-choice');
+
+		event.currentTarget.classList.add('user-choice');	
 	}
 });
+

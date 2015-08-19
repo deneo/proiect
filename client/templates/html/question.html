@@ -14,10 +14,12 @@
 	<div class="control-group">
 	  <div class="controls">
 	  	{{#each question.answers}}
-		    <label class="radio jumbotron" for="radios-0">
-		      <input class = "cepulamea" type="radio" name="answer" id="radios-0" value="{{this}}" checked />
-		      {{this}}
-		    </label>
+	  		<label style = "width: 100%;">
+				<div class="quiz-choice" id = "choice{{this}}">
+					<input type="radio" name="answer" value="{{this}}" style = "display: none;"/> 
+					<center>{{this}}</center>
+				</div>	
+			</label>
 		    <br />
 		  {{/each}}
 		  <br />
@@ -27,5 +29,6 @@
 
 	</fieldset>
 </form>
+
 
 </template>
