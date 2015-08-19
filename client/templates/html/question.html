@@ -1,14 +1,26 @@
 <template name = "question">
 {{> breadcrumb}}
-<div id="message">
-</div>
-
 
 <form class="form-horizontal">
 	<fieldset>
 
 	<!-- Form Name -->
-	<legend><h2>{{question.question}}</h2></legend>
+	<legend>
+		<h1>{{question.question}} </h1>
+		<h3>Dificultate: 
+		{{#each starsFulls}}	
+			★
+		{{/each}}
+
+		{{#each starsEmpty}}
+			☆
+		{{/each}}
+
+		</h3>
+
+	</legend>
+
+	<div id="message"></div>
 
 	<!-- Multiple Radios -->
 	<div class="control-group">

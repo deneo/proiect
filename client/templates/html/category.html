@@ -1,21 +1,19 @@
 <template name = "category">
+
+<h1> {{currentCategory}} </h1>
 {{> breadcrumb}}
 
 <h2>Subcategorii</h2>
 <hr/>
 
-<div class = "container-fluid">
-	{{#each categories}}
-		<a href="/continut{{path}}/{{_id}}" class = "categorie">
-			<center> 
-				<div class = "categorie-poza-container">		
-					<img src = "None" class = "categorie-poza" />
-				</div> 
-			</center>
-			<br />
-			{{_id}}
-		</a>
-	{{/each}}
+<div class = "well">
+	<ul class = "nav nav-pills nav-stacked">
+		{{#each categories}}
+			<li role = "presentation">
+				<a href="/continut{{path}}/{{_id}}">{{_id}}</a>
+			</li>
+		{{/each}}
+	</ul>
 </div>
 
 

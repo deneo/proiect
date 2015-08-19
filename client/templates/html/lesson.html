@@ -2,9 +2,19 @@
 {{> breadcrumb}}
 
 <h1>{{lesson._id}}</h1>
+<h3>Dificultate: 
+		{{#each starsFulls}}	
+			★
+		{{/each}}
+
+		{{#each starsEmpty}}
+			☆
+		{{/each}}
+
+</h3>
+<hr />
 
 {{{lesson.html}}}
-
 
 Intrebari:<ul class="nav nav-pills">
 
