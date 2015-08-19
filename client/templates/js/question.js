@@ -8,8 +8,8 @@ Template.question.events({
 		var i;
 		for (i = 0; i < data.answers.length && data.answers[i] != answer; ++i); ++i;
 		if (i == data.correctAnswer)
-			$("#message").html("BRAVO BOSS AI NENOROCIT INTREBAREA!");
+			$("#message").html('<div class="alert alert-success" id="message">Ai raspuns corect!</div>');
 		else
-			$("#message").html("PARE RAU MAESTRE DAR SI CU BACUL LOAT SI FARA PACANELELE TOT DUBLEAZA BANII");
+			$("#message").html('<div class="alert alert-danger" id="message">Raspunsul tau este gresit!</div>');
 	}
 });

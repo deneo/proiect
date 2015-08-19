@@ -1,8 +1,6 @@
 <template name = "question">
 {{> breadcrumb}}
-
-<div class="alert alert-info" id="message">
-	BOSS AICI E UN JMEN CU JQUERY EJTI NEBOON?
+<div id="message">
 </div>
 
 
@@ -10,18 +8,20 @@
 	<fieldset>
 
 	<!-- Form Name -->
-	<legend>{{question.question}}</legend>
+	<legend><h2>{{question.question}}</h2></legend>
 
 	<!-- Multiple Radios -->
 	<div class="control-group">
 	  <div class="controls">
 	  	{{#each question.answers}}
-		    <label class="radio" for="radios-0">
-		      <input class = "cepulamea" type="radio" name="answer" id="radios-0" value="{{this}}"/>
+		    <label class="radio jumbotron" for="radios-0">
+		      <input class = "cepulamea" type="radio" name="answer" id="radios-0" value="{{this}}" checked />
 		      {{this}}
 		    </label>
+		    <br />
 		  {{/each}}
-		  <input class = "btn btn-default" type="submit" value="Verifică" />
+		  <br />
+		  <center><input class = "btn btn-default btn-lg" type="submit" value="Verifică" /></center>
 	  </div>
 	</div>
 

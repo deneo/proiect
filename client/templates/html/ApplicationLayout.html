@@ -22,7 +22,7 @@
 		              <li>{{> loginButtons}}</li>
 		            </ul>
 		            <ul class="nav navbar-nav navbar-right">
-		              <li><a href="/admin">Button pentru admin care merge doar daca esti boss de boss</a></li>
+		              <li></li>
 		            </ul>
 		          </div><!--/.nav-collapse -->
 		        </div><!--/.container-fluid -->
@@ -31,10 +31,12 @@
 	</div>
 </div>
 
+
 <div class = "row">
-	<div class = "container col-md-12">
+<div class = "col-md-1"></div>
+	<div class = "well container col-md-10">
 		{{> yield}}
 	</div>
+<div class = "col-md-1"></div>
 </div>
-
 </template>

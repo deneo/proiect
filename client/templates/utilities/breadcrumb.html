@@ -1,7 +1,9 @@
 <template name= "breadcrumb" >
+<div class = "well">
 	<ol class = "breadcrumb" >
 		{{#each navigationPath}}
 			<li><a href="{{link}}">{{name}}</a></li>
 		{{/each}}
 	</ol>
+</div>
 </template>
