@@ -1,3 +1,9 @@
+Template.question.onCreated(function() {
+	this.show = new ReactiveVar(0);
+	this.success = new ReactiveVar(0);
+	console.log("MUIE STEAUA");
+});
+
 Template.question.helpers({
 	'starsFulls': function() {
 		var starsFulls = [];
@@ -20,10 +26,10 @@ Template.question.helpers({
 		return Questions.findOne(string);
 	},
 	showMessage: function() {
-		return Session.get("showMessage");
+		return Template.instance().show.get();
 	},
 	successMessage: function() {
-		return Session.get("successMessage");
+		return Template.instance().success.get();
 	}
 
 });
@@ -38,12 +44,12 @@ Template.question.events({
 		var i;
 		for (i = 0; i < data.answers.length && data.answers[i] != answer; ++i); ++i;
 		if (i == data.correctAnswer) {
-			Session.set("showMessage", true);
-			Session.set("successMessage", true);
+			Template.instance().show.set(true);
+			Template.instance().success.set(true);
 		}
 		else {
-			Session.set("showMessage", true);
-			Session.set("successMessage", false);
+			Template.instance().show.set(true);
+			Template.instance().success.set(false);
 		}
 	},
 	'click .quiz-choice': function(event) {
