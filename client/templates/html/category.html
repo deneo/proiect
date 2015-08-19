@@ -1,20 +1,25 @@
 <template name = "category">
 
-<h1> {{currentCategory}} </h1>
-{{> breadcrumb}}
+{{#if navigationPath}}
 
-<h2>Subcategorii</h2>
+	{{> breadcrumb}}
+
+{{/if}}
+
+<h1> {{currentCategory}} </h1>
 <hr/>
 
-<div class = "well">
-	<ul class = "nav nav-pills nav-stacked">
-		{{#each categories}}
-			<li role = "presentation">
-				<a href="/continut{{path}}/{{_id}}">{{_id}}</a>
-			</li>
-		{{/each}}
-	</ul>
-</div>
+{{#if categories}}
+	<div class = "well">
+		<ul class = "nav nav-pills nav-stacked">
+			{{#each categories}}
+				<li role = "presentation">
+					<a href="/continut{{path}}/{{_id}}">{{_id}}</a>
+				</li>
+			{{/each}}
+		</ul>
+	</div>
+{{/if}}
 
 
 <h2>Lectii</h2>

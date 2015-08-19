@@ -1,6 +1,6 @@
 Template.question.helpers({
 	'starsFulls': function() {
-		var starsFulls = []
+		var starsFulls = [];
 		for (var i = 1; i <= this.question.dificulty; ++i)
 			starsFulls.push('');
 		return starsFulls;
@@ -11,7 +11,21 @@ Template.question.helpers({
 		for (var i = 1; i <= 5 - this.question.dificulty; ++i)
 			starsEmpty.push('');
 		return starsEmpty;
+	},
+	getNextQuestion: function() {
+		var lastRoute = Session.get("lastRoute");
+		var regex = '^/' +  lastRoute;
+		var string = {_id: {$ne: this.question._id}, path: {$regex: regex }};
+
+		return Questions.findOne(string);
+	},
+	showMessage: function() {
+		return Session.get("showMessage");
+	},
+	successMessage: function() {
+		return Session.get("successMessage");
 	}
+
 });
 
 Template.question.events({
@@ -23,10 +37,14 @@ Template.question.events({
 		
 		var i;
 		for (i = 0; i < data.answers.length && data.answers[i] != answer; ++i); ++i;
-		if (i == data.correctAnswer)
-			$("#message").html('<div class="alert alert-success" id="message">Ai raspuns corect!</div>');
-		else
-			$("#message").html('<div class="alert alert-danger" id="message">Raspunsul tau este gresit!</div>');
+		if (i == data.correctAnswer) {
+			Session.set("showMessage", true);
+			Session.set("successMessage", true);
+		}
+		else {
+			Session.set("showMessage", true);
+			Session.set("successMessage", false);
+		}
 	},
 	'click .quiz-choice': function(event) {
 		

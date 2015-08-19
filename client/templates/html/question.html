@@ -20,7 +20,19 @@
 
 	</legend>
 
-	<div id="message"></div>
+	{{#if showMessage}}
+		<div id="message">
+			{{#if successMessage}}
+				<div class='alert alert-success' id='message'>Ai raspuns corect!
+					<a href="/intrebare{{getNextQuestion.path}}/{{getNextQuestion._id}}" style="float:right">
+						Urmatorea intrebare
+					</a>	
+				</div>
+			{{else}}
+				<div class="alert alert-danger" id="message">Raspunsul tau este gresit!</div>
+			{{/if}}
+		</div>
+	{{/if}}
 
 	<!-- Multiple Radios -->
 	<div class="control-group">
