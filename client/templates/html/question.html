@@ -8,16 +8,16 @@
 	<legend>
 		<h1>{{question.question}} </h1>
 		{{#if currentUser}} 
-	{{#if thisUserSolvedTheQuestion}}
-		<div id="markItUnsolved" class = "btn btn-default" style="float:right">
-		Marcheaza ca si nerezolvat tuti ceapa matii
-		</div>
-	{{else}}
-		<div id="markItSolved" class = "btn btn-success" style="float:right">
-		Marcheaza ca si rezolvat tuti ceapa matii 
-		</div>
-	{{/if}}
-{{/if}}
+			{{#if thisUserSolvedTheQuestion}}
+				<div id="markItUnsolved" class = "btn btn-default" style="float:right">
+				Marcheaza ca si nerezolvat tuti ceapa matii
+				</div>
+			{{else}}
+				<div id="markItSolved" class = "btn btn-success" style="float:right">
+				Marcheaza ca si rezolvat tuti ceapa matii 
+				</div>
+			{{/if}}
+		{{/if}}
 
 		<h3>Dificultate: 
 		{{#each starsFulls}}	

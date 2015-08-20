@@ -25,18 +25,14 @@
 <h2>Lectii</h2>
 <hr/>
 
-<div class = "container-fluid">
+<div class = "well">
+	<ul class = "nav nav-pills nav-stacked">
 	{{#each lessons}}
-		<a href="/lectie{{path}}/{{_id}}" class = "categorie">
-			<center> 
-				<div class = "categorie-poza-container">		
-					<img src = "None" class = "categorie-poza" />
-				</div> 
-			</center>
-			<br />
-			{{_id}}
-		</a>
+		<li role = "presentation">
+			<a href="/lectie{{path}}/{{_id}}">{{_id}}</a>
+		</li>
 	{{/each}}
+	</ul>
 </div>
 
 <h2>Intrebari</h2>
@@ -55,20 +51,16 @@
 
 <hr/>
 
-<div class = "container-fluid">
+<div class = "well">
+	<ul class = "nav nav-pills nav-stacked">
 	{{#each questions}}
 		{{#if showThisQuestion}}
-			<a href="/intrebare{{path}}/{{_id}}" class = "categorie">
-				<center> 
-					<div class = "categorie-poza-container">		
-						<img src = "None" class = "categorie-poza" />
-					</div> 
-				</center>
-				<br />
-				{{question}}
-			</a>
+			<li role = "presentation">
+			<a href="/intrebare{{path}}/{{_id}}">{{question}}</a>
+			</li>
 		{{/if}}
 	{{/each}}
+	</ul>
 </div>
 
 </template>

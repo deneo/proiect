@@ -16,12 +16,18 @@
 
 {{{lesson.html}}}
 
-Intrebari:<ul class="nav nav-pills">
+<hr />
 
+<h2>Intrebari:</h2>
+<div class = "well">
+	<ul class = "nav nav-pills nav-stacked">
 	{{#each questions}}
-		<li role="presentation"><a href="/intrebare{{path}}/{{_id}}">{{question}}</a></li>
+		<li role = "presentation">
+			<a href="/intrebare{{path}}/{{_id}}">{{question}}</a>
+		</li>
 	{{/each}}
-</ul>
+	</ul>
+</div>
 
 
 </template>
