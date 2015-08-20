@@ -1,7 +1,6 @@
 Template.question.onCreated(function() {
 	this.show = new ReactiveVar(0);
 	this.success = new ReactiveVar(0);
-	console.log("MUIE STEAUA");
 });
 
 Template.question.helpers({
@@ -30,6 +29,9 @@ Template.question.helpers({
 	},
 	successMessage: function() {
 		return Template.instance().success.get();
+	},
+	thisUserSolvedTheQuestion: function() {
+		return QuestionsSolved.find({userId: Meteor.userId(), questionId: this.question._id}).count() !== 0;
 	}
 
 });
@@ -43,6 +45,7 @@ Template.question.events({
 		
 		var i;
 		for (i = 0; i < data.answers.length && data.answers[i] != answer; ++i); ++i;
+
 		if (i == data.correctAnswer) {
 			Template.instance().show.set(true);
 			Template.instance().success.set(true);
@@ -57,6 +60,26 @@ Template.question.events({
 		$(".quiz-choice").removeClass('user-choice');
 
 		event.currentTarget.classList.add('user-choice');	
+	},
+	'click #next-question': function(event) {
+		Template.instance().show.set(false);
+		Template.instance().success.set(false);
+	},
+	'click #markItUnsolved': function(event) {
+		var userId = Meteor.userId();
+		var questionId = this.question._id;
+
+		QuestionsSolved.remove({_id: QuestionsSolved.findOne({userId: userId,questionId: questionId})._id});
+	
+	},
+	'click #markItSolved': function(event) {
+		var userId = Meteor.userId();
+		var questionId = this.question._id;
+
+		QuestionsSolved.insert({
+			userId: userId,
+			questionId: questionId
+		});
 	}
 });
 

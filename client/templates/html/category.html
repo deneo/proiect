@@ -40,19 +40,34 @@
 </div>
 
 <h2>Intrebari</h2>
+
+{{#if currentUser}} 
+	{{#if viewAll}}
+		<div id="filterSolvedQuestions" class = "btn btn-default" style="float:right">
+		Vezi doar intrebarile nerezolvate de tine!
+		</div>
+	{{else}}
+		<div id="filterAllQuestions" class = "btn btn-default" style="float:right">
+		Vezi toate intrebarile!
+		</div>
+	{{/if}}
+{{/if}}
+
 <hr/>
 
 <div class = "container-fluid">
 	{{#each questions}}
-		<a href="/intrebare{{path}}/{{_id}}" class = "categorie">
-			<center> 
-				<div class = "categorie-poza-container">		
-					<img src = "None" class = "categorie-poza" />
-				</div> 
-			</center>
-			<br />
-			{{question}}
-		</a>
+		{{#if showThisQuestion}}
+			<a href="/intrebare{{path}}/{{_id}}" class = "categorie">
+				<center> 
+					<div class = "categorie-poza-container">		
+						<img src = "None" class = "categorie-poza" />
+					</div> 
+				</center>
+				<br />
+				{{question}}
+			</a>
+		{{/if}}
 	{{/each}}
 </div>
 

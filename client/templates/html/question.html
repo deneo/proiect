@@ -7,6 +7,18 @@
 	<!-- Form Name -->
 	<legend>
 		<h1>{{question.question}} </h1>
+		{{#if currentUser}} 
+	{{#if thisUserSolvedTheQuestion}}
+		<div id="markItUnsolved" class = "btn btn-default" style="float:right">
+		Marcheaza ca si nerezolvat tuti ceapa matii
+		</div>
+	{{else}}
+		<div id="markItSolved" class = "btn btn-success" style="float:right">
+		Marcheaza ca si rezolvat tuti ceapa matii 
+		</div>
+	{{/if}}
+{{/if}}
+
 		<h3>Dificultate: 
 		{{#each starsFulls}}	
 			★
@@ -18,13 +30,14 @@
 
 		</h3>
 
+
 	</legend>
 
 	{{#if showMessage}}
 		<div id="message">
 			{{#if successMessage}}
 				<div class='alert alert-success' id='message'>Ai raspuns corect!
-					<a href="/intrebare{{getNextQuestion.path}}/{{getNextQuestion._id}}" style="float:right">
+					<a href="/intrebare{{getNextQuestion.path}}/{{getNextQuestion._id}}" id="next-question" style="float:right">
 						Urmatorea intrebare
 					</a>	
 				</div>
